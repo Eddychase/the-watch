@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.dispatch import receiver
 
 # Create your models here.
 class NeighbourHood(models.Model):
@@ -32,6 +33,20 @@ class Profile(models.Model):
     location = models.CharField(max_length=50, blank=True, null=True)
     neighbourhood = models.ForeignKey(NeighbourHood, on_delete=models.SET_NULL, null=True, related_name='members', blank=True)
 
+    def __str__(self):
+        return f'{self.user.username} profile'
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+class Post(models.Model):
+    title = models.CharField(max_length=120, null=True)
+    post = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner')
+    hood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name='hood_post')
 
 class Business(models.Model):
     name = models.CharField(max_length=120)

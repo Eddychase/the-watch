@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 
-# Create your models here.
+
 class NeighbourHood(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=60)
@@ -26,6 +26,7 @@ class NeighbourHood(models.Model):
     def find_neighborhood(cls, neighborhood_id):
         return cls.objects.filter(id=neighborhood_id)
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     name = models.CharField(max_length=80, blank=True)
@@ -38,20 +39,14 @@ class Profile(models.Model):
         return f'{self.user.username} profile'
 
     @receiver(post_save, sender=User)
-    def create_user_profile(self,sender, instance, created, **kwargs):
+    def create_user_profile(sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
-    
+
     @receiver(post_save, sender=User)
-    def save_user_profile(self,sender, instance, **kwargs):
+    def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
-class Post(models.Model):
-    title = models.CharField(max_length=120, null=True)
-    post = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner')
-    hood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name='hood_post')
 
 class Business(models.Model):
     name = models.CharField(max_length=120)
@@ -73,3 +68,10 @@ class Business(models.Model):
     def search_business(cls, name):
         return cls.objects.filter(name__icontains=name).all()
 
+
+class Post(models.Model):
+    title = models.CharField(max_length=120, null=True)
+    post = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner')
+    hood = models.ForeignKey(NeighbourHood, on_delete=models.CASCADE, related_name='hood_post')

@@ -85,4 +85,19 @@ def create_post(request, hood_id):
 def profile(request, username):
     return render(request, 'profile.html')
 
+def search_business(request):
+    if request.method == 'GET':
+        name = request.GET.get("title")
+        results = Business.objects.filter(name__icontains=name).all()
+        print(results)
+        message = f'name'
+        params = {
+            'results': results,
+            'message': message
+        }
+        return render(request, 'results.html', params)
+    else:
+        message = "You haven't searched for any image category"
+    return render(request, "business.html")
+
 

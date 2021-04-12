@@ -82,3 +82,7 @@ def create_post(request, hood_id):
         form = PostForm()
     return render(request, 'post.html', {'form': form})
 
+def profile(request, username):
+    return render(request, 'profile.html')
+
+

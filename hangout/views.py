@@ -23,7 +23,7 @@ def signup(request):
             return redirect('index')
     else:
         form = SignupForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'registration/signup.html', {'form': form})
 
 def hoods(request):
     all_hoods = NeighbourHood.objects.all()
@@ -43,7 +43,7 @@ def create_hood(request):
             return redirect('hood')
     else:
         form = NeighbourHoodForm()
-    return render(request, 'newhood.html', {'form': form})
+    return render(request, 'new_hood.html', {'form': form})
 
 def single_hood(request, hood_id):
     hood = NeighbourHood.objects.get(id=hood_id)
@@ -94,7 +94,7 @@ def edit_profile(request, username):
             return redirect('profile', user.username)
     else:
         form = UpdateProfileForm(instance=request.user.profile)
-    return render(request, 'editprofile.html', {'form': form})
+    return render(request, 'edit_profile.html', {'form': form})
 
 def search_business(request):
     if request.method == 'GET':
@@ -106,7 +106,7 @@ def search_business(request):
             'results': results,
             'message': message
         }
-        return render(request, 'results.html', params)
+        return render(request, 'business.html', params)
     else:
         message = "You haven't searched for any image category"
     return render(request, "business.html")

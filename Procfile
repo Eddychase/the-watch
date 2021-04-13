@@ -1,1 +1,1 @@
-web: gunicorn hangout.wsgi
+web: gunicorn hoodwatch.wsgi

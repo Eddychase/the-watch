@@ -42,7 +42,7 @@ a:focus {
 
 .navbar {
   padding: 20px 10px;
-  background-color: white;
+  background-color: darkgray;
   border: none;
   border-radius: 0;
   margin-bottom: 40px;
@@ -69,7 +69,7 @@ span {
 }
 .hpost {
   background-color: #1a3e59;
-  color: white;
+  color: grey;
 }
 .poster {
   padding: 20px;
@@ -79,7 +79,7 @@ span {
   min-width: 250px;
   max-width: 250px;
   padding-right: 10px;
-  background: white;
+  background: darkgray;
   color: black;
   position: -webkit-sticky;
   position: sticky;

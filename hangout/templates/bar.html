@@ -1,4 +1,4 @@
-{%load static%}
+
 <nav id="sidebar" class="">
   <div class="sidebar-header">
     <h3><a href="{% url 'index' %}">The Watch</a></h3>
@@ -34,16 +34,13 @@
         &nbsp;{{user.profile.neighbourhood.name}}
       </a>
     </li>
-    {% else %}
-    <li class="mb-4">
-      <a href=""> &nbsp; No Neighbourhood Yet </a>
-    </li>
+    
     {% endif %}
   </ul>
   <div class="logout ml-2 mr-2">
     <a
       href="{% url 'logout' %}"
-      class="btn btn-sm btn-outline-danger d-block mx-auto"
+      class="btn btn-sm btn-outline-primary d-block mx-auto"
     >
       Logout</a
     >

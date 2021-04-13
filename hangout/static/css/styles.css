@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Cambria;
   background: #fafafa;
 }
 .form-text,
@@ -42,7 +42,7 @@ a:focus {
 
 .navbar {
   padding: 20px 10px;
-  background-color: #35495e;
+  background-color: white;
   border: none;
   border-radius: 0;
   margin-bottom: 40px;
@@ -79,8 +79,8 @@ span {
   min-width: 250px;
   max-width: 250px;
   padding-right: 10px;
-  background: #1a3e59;
-  color: darkgrey;
+  background: white;
+  color: black;
   position: -webkit-sticky;
   position: sticky;
   top: 0;

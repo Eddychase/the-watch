@@ -8,18 +8,7 @@
 
 ## Description
 
-> An application that will allow a user to post a project he/she has created and get it reviewed.
-
-## User Story
-
-As a user of the application you will be able to:
-
-> - View posted projects and their details
-> - Post a project to be rated/reviewed
-> - Rate/ review other users' projects
-> - Search for projects
-> - View projects overall score
-> - View my profile page
+> This is an application where people register within the neighbourhood they currently reside in to have access to or share their own businesses or posts to those within the same neighbourhood.
 
 ## Live link
 

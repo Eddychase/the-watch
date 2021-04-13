@@ -42,7 +42,7 @@ a:focus {
 
 .navbar {
   padding: 20px 10px;
-  background-color: lightskyblue;
+  background-color: darkslategrey;
   border: none;
   border-radius: 0;
   margin-bottom: 40px;
@@ -79,7 +79,7 @@ span {
   min-width: 250px;
   max-width: 250px;
   padding-right: 10px;
-  background: lightskyblue;
+  background: darkslategray;
   color: black;
   position: -webkit-sticky;
   position: sticky;

@@ -1,5 +1,4 @@
-{% extends 'base.html' %} 
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="container">
   <div class="row">
     <div class="col-md-3"></div>
@@ -14,7 +13,7 @@
       <p class="text-center">{{user.email}}</p>
       {% if request.user.profile.neighbourhood %}
       <p class="text-center">
-        My Hood
+        My Neighbourhood
         <a
           class="btn btn-sm btn-info"
           href="{% url 'single-hood' user.profile.neighbourhood.id %}"
